@@ -9,7 +9,7 @@
           <% @products.each do |product| %>
           <h5><%= product.name %></h5>
           <h6><%= product.description %></h6>
-          <h6><%= product.formatted_price %></h6>
+          <h6>$<%= product.formatted_price %></h6>
           <% end %>
         <hr>
       </div>

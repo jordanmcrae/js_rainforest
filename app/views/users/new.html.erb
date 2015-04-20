@@ -1,0 +1,37 @@
+<h1>Welcome! Please sign up.</h1>
+
+  <%= form_for @user do |f| %>
+    <% if @user.errors.any? %>
+      <div class="error_messages" id="error_explanation">
+        <h4 class="alert alert-danger" role="alert">Please check the form for errors and try again.</h4>
+        <ul>
+          <% for message in @user.errors.full_messages %>
+            <li class="alert alert-warning" roler"alert"><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+  <% end %>
+
+  <div class="field">
+    <p>
+      <%= f.label :email %><br/>
+      <%= f.text_field :email %>
+    </p>
+  </div>
+
+  <div class="field">
+    <p>
+      <%= f.label :password %><br/>
+      <%= f.password_field :password %>
+    </p>
+  </div>
+
+  <div class="field">
+    <p>
+      <%= f.label :password_confirmation %><br/>
+      <%= f.password_field :password_confirmation %>
+    </p>
+  </div>
+
+  <div class="actions"><%= f.submit %></div>
+  <% end %>
