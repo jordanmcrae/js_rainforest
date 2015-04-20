@@ -8,7 +8,34 @@
 </head>
 <body>
 
-<%= yield %>
+<br>
+<div class="container">
+
+  <div class="jumbotron">
+    <h1>Rainforest</h1>
+      <div class="btn-group" role="group" aria-label="...">
+        <button type="button" class="btn btn-default"><a href="/products/">Home</button>
+        <button type="button" class="btn btn-default"><a href="/products/new">Add a Product</button>
+      </div>
+  </div>
+
+</div>
+
+<!-- Content -->
+  <div class="container">
+    <div class="container">
+
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <%= yield %>
+        </div>
+
+      <div class="text-center">
+        <div class="panel-footer"><h5>Rainforest 2015</h5></div>
+      </div>
+
+    </div>
+  </div>
 
 </body>
 </html>
