@@ -1,0 +1,19 @@
+<h1>Products</h1>
+<%= link_to 'Add a Product', '/products/new' %>
+
+<div class="containter">
+<div class="row">
+  <div class="col-xs-12 col-md-12">
+     <div class="thumbnail">
+     <hr>
+     <%= @products.each do |product| %>
+        <h5><%= product.title %></h5>
+        <h6><%= product.description %></h6>
+        <h6><%= product.price_in_cents %></h6>
+        <%= link_to image_tag(product.url), "/products/#{product.id}" %>
+      <hr>
+      <% end %>
+    </div>
+  </div>
+</div>
+

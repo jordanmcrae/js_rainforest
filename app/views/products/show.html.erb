@@ -1,0 +1,15 @@
+<%= link_to "Back to Products", products_url %> | <span class="label label-warning"><%= link_to "Edit", edit_product_path(@product) %></span> | <span class="label label-danger"><%= link_to "Delete", @product, method: :delete, data: {confirm: "Are you sure?"} %></span>
+
+<h1><%= @product.title %></h1>
+<h3><%= @product.description %></h3>
+<h4><%= @product.price_in_cents %></h4>
+
+
+<div class="row">
+  <div class="col-xs-9 col-md-9">
+     <div class="thumbnail">
+        <%= image_tag @product.url  %>
+    </div>
+  </div>
+</div>
+
