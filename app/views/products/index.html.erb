@@ -1,17 +1,17 @@
 <h1>Products</h1>
-<%= link_to 'Add a Product', '/products/new' %>
+
+<%= link_to 'Add a Product', new_product_path %>
 
 <div class="containter">
   <div class="row">
     <div class="col-xs-12 col-md-12">
        <div class="thumbnail">
-        <hr>
           <% @products.each do |product| %>
-          <h5><%= product.name %></h5>
-          <h6><%= product.description %></h6>
+          <h5>Product: <%= product.name %></h5>
+          <h6>Description: <%= product.description %></h6>
           <h6>$<%= product.formatted_price %></h6>
+          <hr>
           <% end %>
-        <hr>
       </div>
     </div>
   </div>

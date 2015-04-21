@@ -25,6 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #Bootstrap
 gem 'bootstrap-sass', '~> 3.3.4'
 #bcrypt
+gem 'haml-rails'
 gem 'bcrypt-ruby', '~> 3.1.5'
 
 # Use ActiveModel has_secure_password

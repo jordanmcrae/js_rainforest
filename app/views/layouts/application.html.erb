@@ -13,6 +13,7 @@
 
   <div class="jumbotron">
     <h1>Rainforest</h1>
+
       <div class="btn-group" role="group" aria-label="...">
         <button type="button" class="btn btn-default"><a href="/products/">Home</button></a>
         <button type="button" class="btn btn-default"><a href="/products/new">Add a Product</button></a>
@@ -23,13 +24,28 @@
             <span class="caret"></span>
             <span class="sr-only">Toggle Dropdown</span>
           </button>
+
           <ul class="dropdown-menu" role="menu">
             <li><a href="/users/new">Sign Up</a></li>
             <li class="divider"></li>
             <li><a href="/sessions/new">Login</a></li>
           </ul>
+
         </div>
+
+        <div class="container">
+          <div class="userinfo">
+            <% if current_user %>
+              <h5> Signed in as <%= current_user.email %>. <%= link_to "Log out", session_path("current"), :method => :delete %></h5>
+            <% else %>
+              <%= %>
+            <% end %>
+          </div>
+
+        </div>
+
       </div>
+
   </div>
 
 </div>
