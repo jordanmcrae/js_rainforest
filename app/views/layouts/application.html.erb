@@ -18,7 +18,7 @@
         <button type="button" class="btn btn-default"><a href="/products/new">Add a Product</button></a>
 
         <div class="btn-group">
-          <button type="button" class="btn btn-info" id="login_text"><a href="users/new">Login</a></button>
+          <button type="button" class="btn btn-info" id="login_text"><a href="/sessions/new">Login</a></button>
           <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="caret"></span>
             <span class="sr-only">Toggle Dropdown</span>
@@ -26,15 +26,28 @@
           <ul class="dropdown-menu" role="menu">
             <li><a href="/users/new">Sign Up</a></li>
             <li class="divider"></li>
-            <li><a href="/users/login">Login</a></li>
+            <li><a href="/sessions/new">Login</a></li>
           </ul>
-</div>
+        </div>
       </div>
   </div>
 
 </div>
 
+<!-- Flash notices -->
+  <div class="container">
+    <div class="panel-body">
+    <% if flash[:notice] %>
+      <h5 id="notice" class="alert alert-success"><%= flash[:notice] %></h5>
+    <% end %>
+    <% if flash[:alert] %>
+      <h5 id="alert" class="alert alert-danger"><%= flash[:alert] %></h5>
+    <% end %>
+    </div>
+  </div>
+
 <!-- Content -->
+
   <div class="container">
     <div class="container">
 
