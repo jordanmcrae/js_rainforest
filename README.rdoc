@@ -1,28 +1,14 @@
-== README
+#Rainforest
+####Visit the working app at: http://rainforest-2015.herokuapp.com
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##Introduction
+The purpose of this project was to familiarize myself with the basics of authentication, authorization, bcrypt, and postgres.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+##User Guide
+1. Begin by clicking dropdown menu from the "Login" button at the top of the nav, and click on "Sign Up".
+2. Fill in all fields.
+3. Once registration is complete, proceed to login by clicking the "login" button at the top of the nav.
+4. Features will now be available to you that weren't before such as the "Add a Product" link on the nav, and the "edit" / "delete" options on the individual products.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* ***Note: This app does not yet have individual user parameters, so all products can be accessed, edited and deleted by any user. Individual user product management will be added in a later version.
