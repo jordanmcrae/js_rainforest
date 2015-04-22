@@ -1,6 +1,64 @@
 <%= link_to "Back to Products", products_url %> | <span class="label label-warning"><%= link_to "Edit", edit_product_path(@product) %></span> | <span class="label label-danger"><%= link_to "Delete", @product, method: :delete, data: {confirm: "Are you sure?"} %></span>
 
-<h1><%= @product.name %></h1>
-<h3><%= @product.description %></h3>
-<h4>$<%= @product.formatted_price %></h4>
+  <h1><%= @product.name %></h1>
+  <h3><%= @product.description %></h3>
+  <h4>$<%= @product.formatted_price %></h4>
+
+
+  <div class="new_review">
+    <% if current_user %>
+
+        <h3>Add a Review</h3>
+          <%= form_for([@product, @review]) do |f| %>
+            <% if @review.errors.any? %>
+              <div id="error_explanation" class="label label-danger">
+                <h4><%= pluralize(@review.errors.count, "error") %>Please fix these fields to save your review:</h4>
+
+                <ul>
+                <% @review.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+                </ul>
+              </div>
+          <% end %>
+
+      <div class="field">
+        <%= f.label :comment %><br />
+        <%= f.text_area :comment %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    <% end %>
+
+    <% else %>
+      <h4>Please <%= link_to "log in", new_session_path %> to add a review.</h4>
+    <% end %>
+  </div>
+
+
+
+  <div class="previous_reviews">
+  <h3>Reviews</h3>
+
+    <% @product.reviews.each do |review| %>
+
+      <h4>
+        <%= review.comment %></br>
+
+        <% if review.user != nil %>
+          <em> by <%= review.user.email %></em>
+          Added on: <%=review.created_at %>
+        <% end %>
+
+      </h4>
+
+    <% end %>
+
+
+
+
+  </div>
+
 
