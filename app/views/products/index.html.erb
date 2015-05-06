@@ -1,20 +1,15 @@
 <h1>Products</h1>
+<%= form_tag products_path, method: :get, authentication: false, id: 'search-form' do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<h4><%= page_entries_info @products %></h4> <!-- Kaminari helper -->
 
 <%= link_to 'Add a Product', new_product_path %>
 
-<div class="containter">
-  <div class="row">
-    <div class="col-xs-12 col-md-12">
-       <div class="thumbnail">
-          <% @products.each do |product| %>
-            <a href="<%= product_path(product) %>"><h5>Product: <%= product.name %></h5></a>
-            <h6>Description: <%= product.description %></h6>
-            <h6>$<%= product.formatted_price %></h6>
-            <hr>
-          <% end %>
-      </div>
-    </div>
-  </div>
+<div id="products">
+  <%= render @products %>         <!-- Looks for a partial named _product -->
 </div>
 
-
+<%= paginate @products %>  <!-- Kaminari helper -->

@@ -2,7 +2,27 @@ class ProductsController < ApplicationController
   before_filter :ensure_logged_in, only: [:edit, :destroy, :create]
 
   def index
-    @products = Product.all
+    @products = if params[:search]
+      Product.where("LOWER(name) LIKE LOWER(?)", "%#{params[:search]}%")  #Case insensitive search
+    else
+      Product.all
+    end
+
+    @products = @products.order('products.created_at DESC').page(params[:page]) #page method given to us by Kaminari to assist in pagination
+
+    # if request.xhr?     #Since 'X-Requested-With=XMLHTTPRequest' is passed with each request, request.xhr? method can be used (Rails knows this is an AJAX request)
+    #   render @products
+    # end
+
+    respond_to do |format|  #Now it will look for index.js.erb -- Must create a view.
+      format.html do
+        if request.xhr?         #Strictly respond to html and js
+          render @products      #Instead of rendering a whole page, it renders the partial,
+        end
+        #render 'index.html.erb'
+      end
+      format.js   #render 'index.js.erb'
+    end
   end
 
   def show
