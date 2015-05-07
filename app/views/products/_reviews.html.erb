@@ -1,0 +1,13 @@
+<h3>Reviews</h3>
+
+  <% @product.reviews.each do |review| %>
+    <hr>
+    <h4>
+      <%= review.comment %></br>
+
+      <% if review.user != nil %>
+        <em> by <%= review.user.name %> </em>
+        Added on: <%=review.created_at %>
+      <% end %>
+    </h4>
+  <% end %>

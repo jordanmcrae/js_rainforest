@@ -1,14 +1,6 @@
-<div class="containter">
-  <div class="row">
-    <div class="col-xs-12 col-md-12">
-       <div class="thumbnail">
-          <% @products.each do |product| %>
-            <a href="<%= product_path(product) %>"><h5>Product: <%= product.name %></h5></a>
-            <h6>Description: <%= product.description %></h6>
-            <h6>$<%= product.formatted_price %></h6>
-            <hr>
-          <% end %>
-      </div>
-    </div>
-  </div>
+ <div class="thumbnail">
+    <a href="<%= product_path(product) %>"><h5>Product: <%= product.name %></h5></a>
+    <h6>Description: <%= truncate(product.description, length: 100) %></h6> <!--truncate shortens descript. to 100 -->
+    <h6>$<%= product.formatted_price %></h6>                                <!--chars or less -->
+    <hr>
 </div>

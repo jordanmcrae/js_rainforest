@@ -9,7 +9,7 @@
     <% if current_user %>
 
         <h3>Add a Review</h3>
-          <%= form_for([@product, @review]) do |f| %>
+          <%= form_for [@product, @review], :remote => true do |f| %>
             <% if @review.errors.any? %>
               <div id="error_explanation" class="label label-danger">
                 <h4><%= pluralize(@review.errors.count, "error") %>Please fix these fields to save your review:</h4>
@@ -30,6 +30,7 @@
       <div class="actions">
         <%= f.submit %>
       </div>
+
     <% end %>
 
     <% else %>
@@ -39,25 +40,7 @@
 
 
   <div class="previous_reviews">
-  <h3>Reviews</h3>
-
-    <% @product.reviews.each do |review| %>
-      <hr>
-      <h4>
-        <%= review.comment %></br>
-
-        <% if review.user != nil %>
-          <em> by <%= review.user.name %></em>
-          Added on: <%=review.created_at %>
-        <% end %>
-
-      </h4>
-
-    <% end %>
-
-
-
-
+    <%= render :partial => "reviews" %>
   </div>
 
 

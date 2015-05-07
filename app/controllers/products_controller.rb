@@ -15,13 +15,8 @@ class ProductsController < ApplicationController
     # end
 
     respond_to do |format|  #Now it will look for index.js.erb -- Must create a view.
-      format.html do
-        if request.xhr?         #Strictly respond to html and js
-          render @products      #Instead of rendering a whole page, it renders the partial,
-        end
-        #render 'index.html.erb'
-      end
-      format.js   #render 'index.js.erb'
+      format.html
+      format.js   #render a template called 'index.js.erb'
     end
   end
 

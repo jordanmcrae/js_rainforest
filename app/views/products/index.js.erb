@@ -1,1 +1,7 @@
-$('#products').html("<%= j(render @products) %>");  // escape_javascript takes care of ensuring there are no issues with formatting by the time it gets executed as JS (can also be represented as j)
+<% if params[:search] && params[:page].nil? %> <!-- escape_javascript takes care of ensuring there are no issues with formatting by the time it gets executed as JS (can also be represented as j)... Helps us not break strings in this case-->
+  $('#products').html('<%= j(render @products) %>');
+<% else %>
+  $('#products').append('<%= j render(@products) %>');
+<% end %>
+
+$('.pagination').replaceWith('<%= j paginate(@products) %>');

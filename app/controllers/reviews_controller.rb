@@ -10,12 +10,15 @@ class ReviewsController < ApplicationController
     @review = @product.reviews.build(review_params)
     @review.user = current_user
 
+    respond_to do |format|
       if @review.save
-        redirect_to products_path, notice: "Thank you for your review."
+        format.html { redirect_to product_path(@product.id), notice: 'Thank you for your review.' }
+        format.js {} # This will look for app/views/reviews/create.js.erb
       else
-        flash.now[:alert] = "Your review has not been saved. Please ensure that you have filled out all of the fields correctly."
-        render 'products/show'
+        format.html { render 'products/show', alert: 'There was an error.'}
+        format.js {}
       end
+    end
   end
 
   def destroy
