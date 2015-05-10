@@ -1,0 +1,9 @@
+<% if @review.errors.present? %>
+  <div id="danger">
+     <ul>
+        <% @review.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+        <% end %>
+    </ul>
+  </div>
+<% end %>
