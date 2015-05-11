@@ -1,4 +1,4 @@
-$("#previous-reviews").html("<%= j(render(:partial => 'products/reviews')) %>");
+$(".previous-reviews").html("<%= j(render(:partial => '/products/reviews')) %>");
 
   <% if @review.errors.present? %>
     $("#review-form-errors").html("<%= j(render(:partial => '/products/review_form_errors')) %>");
